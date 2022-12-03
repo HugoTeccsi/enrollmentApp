@@ -23,8 +23,9 @@ public class StudentHandler {
 	private final RequestValidator requestValidator;
 
 	public Mono<ServerResponse> findAll(ServerRequest req) {
+		var typeOrder = req.queryParam("typeOrder");
 		return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
-				.body(studentService.findAll(), Student.class);
+				.body(studentService.findAllAndSortByAge(typeOrder), Student.class);
 	}
 
 	public Mono<ServerResponse> findById(ServerRequest req) {

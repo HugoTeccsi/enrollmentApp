@@ -63,6 +63,24 @@ public class StudentControllerTest {
 	}
 
 	@Test
+	public void shouldReturnListSortDescByAgeWhenGetStudents(){
+
+		var mockList = StudentUtil.mockFindAll();
+
+		when(repository.findAll()).thenReturn(Flux.fromIterable(mockList));
+
+		client.get()
+				.uri("/students?typeOrder=desc")
+				.accept(MediaType.APPLICATION_JSON)
+				.exchange()
+				.expectStatus().isOk()
+				.expectHeader().contentType(MediaType.APPLICATION_JSON)
+				.expectBody()
+				.jsonPath("$[0].age").isEqualTo(33)
+				.jsonPath("$[1].age").isEqualTo(30);
+	}
+
+	@Test
 	public void shouldReturnStatusCreatedWhenCreateStudent(){
 
 		var mockStudent = StudentUtil.mockCreate();

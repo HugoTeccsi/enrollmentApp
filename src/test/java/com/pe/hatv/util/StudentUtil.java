@@ -25,7 +25,7 @@ public final class StudentUtil {
 		student2.setNames("Alexander");
 		student2.setSurnames("Teccsi Veredas");
 		student2.setDni("33334444");
-		student2.setAge(33);
+		student2.setAge(30);
 
 		list.add(student1);
 		list.add(student2);
