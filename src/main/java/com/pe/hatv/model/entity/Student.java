@@ -1,5 +1,6 @@
 package com.pe.hatv.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @Document(collection = "students")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Student {
 
 	@EqualsAndHashCode.Include
@@ -27,6 +29,6 @@ public class Student {
 	private String dni;
 
 	@NotNull
-	private int age;
+	private Integer age;
 
 }

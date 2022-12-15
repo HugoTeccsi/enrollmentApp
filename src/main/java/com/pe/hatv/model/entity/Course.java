@@ -1,5 +1,6 @@
 package com.pe.hatv.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @Document(collection = "courses")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Course {
 
 	@EqualsAndHashCode.Include
