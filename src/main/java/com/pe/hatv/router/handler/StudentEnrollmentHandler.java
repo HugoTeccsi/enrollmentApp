@@ -2,7 +2,6 @@ package com.pe.hatv.router.handler;
 
 import com.pe.hatv.model.entity.StudentEnrollment;
 import com.pe.hatv.service.StudentEnrollmentService;
-import com.pe.hatv.service.StudentService;
 import com.pe.hatv.validator.RequestValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -20,8 +19,6 @@ import static org.springframework.web.reactive.function.BodyInserters.fromValue;
 public class StudentEnrollmentHandler {
 
 	private final StudentEnrollmentService service;
-
-	private final StudentService studentService;
 
 	private final RequestValidator requestValidator;
 
