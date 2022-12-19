@@ -34,7 +34,7 @@ public class SecurityContextRepository implements ServerSecurityContextRepositor
 
 		if (Objects.nonNull(authHeader)) {
 			if (authHeader.startsWith("Bearer ") || authHeader.startsWith("bearer ")) {
-				log.info("exits bearer...");
+				log.debug("exits token...");
 				var authToken = authHeader.substring(7);
 				var auth = new UsernamePasswordAuthenticationToken(null, authToken);
 				return this.authenticationManager.authenticate(auth).map(SecurityContextImpl::new);
